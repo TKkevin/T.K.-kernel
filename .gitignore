@@ -1,0 +1,47 @@
+# TuesdayOS .gitignore
+
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.elf
+*.bin
+*.iso
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.code-workspace
+
+# IDE
+.DS_Store
+.project
+.cproject
+.settings/
+
+# Dependencies
+*.d
+
+# Executables
+tkshell
+tkls
+tkcat
+tkps
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Configuration
+config.mk
+
+# Documentation
+docs/generated/
