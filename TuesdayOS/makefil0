@@ -1,0 +1,67 @@
+#
+# TuesdayOS Build Configuration
+# Rebranded from Windows XP (NT 5.1) source tree
+#
+# TuesdayOS - T.K. Kernel
+# Copyright (C) 2026 TuesdayOS Project
+# Licensed under TuesdayOS Public License (TUPL) v1.0
+#
+
+!INCLUDE $(TUESMAKEENV)\makefile.plt
+
+all: echobldmsg
+
+echobldmsg:
+!IF "$(BUILDMSG)" != ""
+    @echo.
+    @echo $(BUILDMSG)
+!ENDIF
+
+cleanup: nuke_binaries
+
+clean: cleanup set_builddate set_buildnum DelPub all
+
+quietclean: quiet_revert_public cleanup set_builddate set_buildnum DelPub all
+
+set_builddate:
+!if !defined(BUILD_DATE_SET) || !exists($(TUESBASEDIR)\__blddate__)
+    @perl $(TUESTOOLPATH)\updtnum.pl
+!endif
+    @echo BuildDate:
+    @type $(TUESBASEDIR)\__blddate__
+    tuesplace $(TUESBASEDIR)\__blddate__
+
+set_buildnum:
+    @perl $(TUESTOOLPATH)\genbldno.pl
+    @echo BuildNumber:
+    @type $(TUESBASEDIR)\__bldnum__
+    tuesplace $(TUESBASEDIR)\__bldnum__
+    @echo QfeNumber:
+    @type $(TUESBASEDIR)\__qfenum__
+    tuesplace $(TUESBASEDIR)\__qfenum__
+
+revert_public:
+    -revert_public.cmd
+
+quiet_revert_public:
+    -revert_public.cmd -NoInteract
+
+scorch_source:
+    @echo BUILDMSG: Removing all r/w files from the source tree.
+    @perl $(TUESTOOLPATH)\scorch.pl -scorch=. $(SCORCH_SWITCHES)
+
+nuke_binaries:
+!if "$(_TUESTREE)" != ""
+!if !defined(OFFICIAL_BUILD_MACHINE) && !defined(BUILD_OFFLINE)
+!if exists($(_TUESDRIVE)$(_TUESROOT)\developer\$(USERNAME)\binacl.txt)
+    @-razacl /SDDLfile:$(_TUESDRIVE)$(_TUESROOT)\developer\$(USERNAME)\binacl.txt /root:$(_TUESTREE)
+!else
+    @-razacl /SDDLfile:$(TUESTOOLPATH)\binariesacl.txt /root:$(_TUESTREE)
+!endif
+!endif
+    @-md $(_TUESTREE)\symbols
+    @-md $(_TUESTREE)\symbols.pri
+!endif
+
+DelPub:
+    -SubmitNewPublicFiles.cmd Delete

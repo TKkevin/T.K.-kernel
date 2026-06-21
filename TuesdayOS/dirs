@@ -1,0 +1,22 @@
+DIRS=\
+    Published       \
+    Core            \
+    WindowSystem    \
+    Admin           \
+    COM             \
+    Developer       \
+    Drivers         \
+    DirectorySvc    \
+    EndUser         \
+    NetCore         \
+    NetServices     \
+    Networking      \
+    Multimedia      \
+    PrintScan       \
+    Shell           \
+    TerminalSvc     \
+    SDKTools        \
+    Tools           \
+    Localization    \
+    MergedComponents \
+    Legacy

@@ -1,0 +1,14 @@
+/*
+ * TuesdayOS - The TuesdayOS Operating System
+ * Copyright (c) 2024-2026 TuesdayOS Project. All rights reserved.
+ *
+ * This software is licensed under the TuesdayOS Public License (TUPL) v1.0.
+ * You may use, modify, and distribute this software in accordance with
+ * the terms of the TUPL as published in the LICENSE file.
+ *
+ * Original Source: Windows XP SP1 (NT 5.1)
+ * See ATTRIBUTIONS.md for source attribution.
+ *
+ * TuesdayOS Code Identifier Prefix: [tuesk_|tkdrv_|tksys_|tkapp_|tkutil_]
+ * Component: [Component Name]
+ */

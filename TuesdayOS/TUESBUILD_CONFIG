@@ -1,0 +1,33 @@
+# TuesdayOS Build Configuration
+# This file defines the build environment variables for TuesdayOS
+
+# Product identification
+TUES_PRODUCT_NAME=TuesdayOS
+TUES_KERNEL_NAME=T.K. Kernel
+TUES_VERSION=1.0
+TUES_BUILD_NUMBER=TUES1.0
+
+# Build paths
+TUESBASEDIR=\TuesdayOS
+_TUESROOT=\TuesdayOS
+_TUESDRIVE=C:
+_TUESTREE=$(_TUESDRIVE)$(_TUESROOT)\bin
+TUESMAKEENV=$(_TUESDRIVE)$(_TUESROOT)\Tools\build
+TUESTOOLPATH=$(_TUESDRIVE)$(_TUESROOT)\Tools
+
+# Build tools
+TUES_BUILD=tuesbuild.exe
+TUES_LINK=tueslink.exe
+TUES_PLACE=tuesplace.exe
+TUES_RC=tuesrc.exe
+
+# Identifier prefixes
+TUESK_PREFIX=tuesk_
+TKDRV_PREFIX=tkdrv_
+TKSYS_PREFIX=tksys_
+TKAPP_PREFIX=tkapp_
+TKUTIL_PREFIX=tkutil_
+
+# License
+TUES_LICENSE=TUPL
+TUES_LICENSE_VERSION=1.0
